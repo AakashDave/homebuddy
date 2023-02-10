@@ -5,6 +5,9 @@ const ApiFeatures = require("../utils/apiFeatures");
 
 // create services --> admin
 exports.createServices=catchAsyncErrors(async(req,res,next)=>{
+
+    req.body.user=req.user.id;
+
     const service=await Service.create(req.body);
     res.status(200).json({
         suceess:true,
