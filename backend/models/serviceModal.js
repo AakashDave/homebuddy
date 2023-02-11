@@ -14,7 +14,7 @@ const serviceSchema=new mongoose.Schema({
         required:[true,"please Enter service price"],
         maxLength:[8,"price can not exceed 8 figures"]
     },
-    rating:{
+    ratings:{
         type:Number,
         default:0
     },
@@ -36,8 +36,17 @@ const serviceSchema=new mongoose.Schema({
         type:Number,
         default:0
     },
+    isServiceAvailable:{
+        type:Boolean,
+        required:true,
+        default:true
+    },
     reviews:[
-        {
+        {   user:{
+                type:mongoose.Schema.ObjectId,
+                ref:"User",
+                required:true
+            },
             name:{
                 type:String,
                 required:true
