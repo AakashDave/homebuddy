@@ -11,9 +11,12 @@ app.use(cookieParser());
 // Route imports
 const service=require("./routes/serviceRoute");
 const user=require("./routes/userRoute");
+const order=require("./routes/orderRoute");
 
 app.use("/api/v1",service);
 app.use("/api/v1",user);
+app.use("/api/v1",order);
+
 
 // middleware for Error
 app.use(errorMiddleware);
